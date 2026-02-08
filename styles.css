@@ -1,0 +1,84 @@
+:root {
+  --green: #0e2a1f;
+  --green-soft: #143629;
+  --gold: #d6b67d;
+  --text-soft: rgba(255,255,255,0.78);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Cormorant Garamond", serif;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1b4a37 0%, transparent 60%),
+    var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-soft);
+}
+
+.stage {
+  width: 100%;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.panel {
+  max-width: 560px;
+  text-align: center;
+}
+
+.logo {
+  width: 280px;
+  max-width: 80%;
+  margin-bottom: 28px;
+}
+
+.tagline {
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 22px;
+}
+
+h1 {
+  color: var(--gold);
+  font-size: 42px;
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.email {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 20px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(214,182,125,0.35);
+  padding-bottom: 4px;
+}
+
+.email:hover {
+  border-bottom-color: var(--gold);
+}
+
+.interest {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: 0.6;
+}
