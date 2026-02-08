@@ -1,70 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revirra | Physician-Led Aesthetics</title>
-    <meta
-      name="description"
-      content="Revirra is a physician-led aesthetics practice opening in 2027 near Fishers and Fortville, Indiana."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="brand" href="#" aria-label="Revirra Home">
-          <img src="assets/logo-draft-feb26.png" alt="Revirra logo" width="44" height="44" />
-          <span class="wordmark">Revirra</span>
-        </a>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Revirra — Physician-Led Aesthetics</title>
 
-      <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <p class="eyebrow">Physician-Led Aesthetics</p>
-          <h1 id="hero-title">Opening 2027</h1>
-          <p class="tagline">
-            A quiet, modern space for refined, natural-looking rejuvenation near
-            Fishers and Fortville, Indiana.
-          </p>
-        </section>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-        <section class="pillars" aria-label="Core principles">
-          <ul>
-            <li>Restore</li>
-            <li>Revive</li>
-            <li>Renew</li>
-          </ul>
-        </section>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
 
-        <section class="interest" aria-labelledby="interest-title">
-          <h2 id="interest-title">Join the Interest List</h2>
-          <form action="https://example.com/interest" method="post">
-            <label for="email">Email address</label>
-            <div class="form-row">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-              <button type="submit">Notify Me</button>
-            </div>
-          </form>
-        </section>
-      </main>
+<body>
+  <main class="container">
 
-      <footer class="site-footer">
-        <p><a href="mailto:hello@revirra.com">hello@revirra.com</a></p>
-        <p>&copy; 2026 Revirra. All rights reserved.</p>
-      </footer>
-    </div>
-  </body>
+    <header class="hero">
+      <img
+        src="./assets/logo-draft-feb26.png"
+        alt="Revirra logo"
+        class="logo"
+      />
+
+      <p class="eyebrow">Physician-Led Aesthetics</p>
+
+      <h1>Opening 2027</h1>
+
+      <p class="subhead">
+        A quiet, modern space for refined, natural-looking rejuvenation near
+        Fishers and Fortville, Indiana.
+      </p>
+
+      <ul class="values">
+        <li>Restore</li>
+        <li>Revive</li>
+        <li>Renew</li>
+      </ul>
+    </header>
+
+    <section class="cta">
+      <h2>Join the Interest List</h2>
+
+      <form class="form">
+        <input
+          type="email"
+          placeholder="you@example.com"
+          aria-label="Email address"
+          required
+        />
+        <button type="submit">Notify Me</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <a href="mailto:hello@revirra.com">hello@revirra.com</a>
+      <span>© 2026 Revirra. All rights reserved.</span>
+    </footer>
+
+  </main>
+</body>
 </html>
