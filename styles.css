@@ -21,11 +21,19 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  background-color: #050d09; /* prevents white canvas */
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  color: var(--white-soft);
+  line-height: 1.65;
+
+  background-color: #050d09; /* fallback */
   background:
     linear-gradient(
       to top,
@@ -37,18 +45,12 @@ body {
     radial-gradient(90% 110% at 14% -4%, rgba(194, 164, 99, 0.22), transparent 62%),
     radial-gradient(70% 90% at 104% 0%, rgba(33, 76, 56, 0.42), transparent 58%),
     linear-gradient(160deg, var(--forest-900), var(--forest-950) 46%, #050d09 100%);
+
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-size: 100% 100%;
 }
 
-body {
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
-  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
-  color: var(--white-soft);
-  line-height: 1.65;
-}
+
 
 
 img {
