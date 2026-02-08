@@ -3,11 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Revirra | Physician-Led Aesthetics</title>
     <meta
       name="description"
       content="Revirra is a physician-led aesthetics practice opening in 2027 near Fishers and Fortville, Indiana."
     />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Revirra | Physician-Led Aesthetics" />
+    <meta
+      property="og:description"
+      content="Opening 2027 near Fishers and Fortville, Indiana."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Revirra | Physician-Led Aesthetics" />
+    <meta
+      name="twitter:description"
+      content="Opening 2027 near Fishers and Fortville, Indiana."
+    />
+    <meta name="twitter:image" content="/assets/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,10 +40,12 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
- <body>
-  <div class="page-shell">
-    <div class="bg-layer bg-layer-top" aria-hidden="true"></div>
-    <div class="bg-layer bg-layer-bottom" aria-hidden="true"></div>
+
+  <body>
+    <div class="page-shell">
+      <!-- Decorative background layers (kept inside page-shell) -->
+      <div class="bg-layer bg-layer-top" aria-hidden="true"></div>
+      <div class="bg-layer bg-layer-bottom" aria-hidden="true"></div>
 
       <header class="site-header">
         <a class="brand" href="#" aria-label="Revirra Home">
@@ -30,7 +56,13 @@
       <main>
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-logo-wrap">
-            <img src="/assets/logo-draft-feb26.png" alt="Revirra mark" class="hero-logo" />
+            <img
+              src="/assets/logo-draft-feb26.png"
+              alt="Revirra mark"
+              class="hero-logo"
+              width="160"
+              height="160"
+            />
           </div>
           <div class="hero-copy">
             <p class="eyebrow">Physician-Led Aesthetics</p>
@@ -52,18 +84,38 @@
 
         <section class="interest" aria-labelledby="interest-title">
           <h2 id="interest-title">Join the Interest List</h2>
-          <form action="https://example.com/interest" method="post">
+
+          <!--
+            RECOMMENDED (email-to-you): Formspree
+            1) Create a form at Formspree
+            2) Replace YOUR_FORMSPREE_ID below
+          -->
+          <form
+            id="interest-form"
+            action="https://formspree.io/f/xojnvqen"
+            method="post"
+          >
             <label for="email">Email address</label>
+
             <div class="form-row">
               <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="you@example.com"
+                autocomplete="email"
+                inputmode="email"
                 required
               />
-              <button type="submit">Notify Me</button>
+              <button id="interest-submit" type="submit">Join the List</button>
             </div>
+
+            <p
+              id="form-status"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
           </form>
         </section>
       </main>
@@ -73,6 +125,72 @@
         <p>&copy; 2026 Revirra. All rights reserved.</p>
       </footer>
     </div>
+
+    <script>
+      (function () {
+        const form = document.getElementById("interest-form");
+        const emailInput = document.getElementById("email");
+        const button = document.getElementById("interest-submit");
+        const status = document.getElementById("form-status");
+
+        if (!form || !emailInput || !button || !status) return;
+
+        function setStatus(message, type) {
+          status.textContent = message;
+          status.dataset.type = type || "";
+        }
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Basic browser validity check
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const action = form.getAttribute("action");
+          const formData = new FormData(form);
+
+          button.disabled = true;
+          const originalText = button.textContent;
+          button.textContent = "Saving…";
+          setStatus("", "");
+
+          try {
+            // If no real endpoint configured, still show success locally
+            if (!action || action.includes("YOUR_FORMSPREE_ID")) {
+              await new Promise((r) => setTimeout(r, 450));
+              setStatus("You’re on the list. We’ll reach out when Revirra opens.", "success");
+              button.textContent = "Saved ✓";
+              emailInput.value = "";
+              return;
+            }
+
+            const res = await fetch(action, {
+              method: "POST",
+              body: formData,
+              headers: { Accept: "application/json" },
+            });
+
+            if (res.ok) {
+              setStatus("You’re on the list. We’ll reach out when Revirra opens.", "success");
+              button.textContent = "Saved ✓";
+              emailInput.value = "";
+            } else {
+              setStatus("Something didn’t go through. Please try again in a moment.", "error");
+              button.disabled = false;
+              button.textContent = originalText;
+            }
+          } catch (err) {
+            setStatus("Connection issue. Please try again, or email us directly.", "error");
+            button.disabled = false;
+            button.textContent = originalText;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
+
 
