@@ -81,8 +81,9 @@ img {
 }
 
 .site-header {
-  padding: 0.2rem 0 1.3rem;
+  padding: 1.4rem 0 2.2rem; /* more vertical presence */
 }
+
 
 .brand {
   width: fit-content;
@@ -103,12 +104,29 @@ img {
 
 .wordmark {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 7vw, 2.6rem);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
   line-height: 1;
-  letter-spacing: 0.05em;
-  color: var(--gold-matte);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.24);
+  letter-spacing: 0.08em;
+  position: relative;
+
+  /* Gold gradient sheen */
+  background: linear-gradient(
+    180deg,
+    #f1e2b0 0%,
+    #c2a463 45%,
+    #8f6f33 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Subtle luxury glow */
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(194, 164, 99, 0.28),
+    0 0 42px rgba(194, 164, 99, 0.14);
 }
+
 
 main {
   display: grid;
