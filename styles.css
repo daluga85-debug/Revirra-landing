@@ -72,7 +72,7 @@ img {
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(194, 164, 99, 0.16), rgba(194, 164, 99, 0));
-  opacity: 0.75;
+  opacity: 0.25;
 }
 
 .bg-layer-bottom {
@@ -82,14 +82,18 @@ img {
   width: 34rem;
   aspect-ratio: 1;
   border-radius: 50%;
+
+  /* switch to a deep green haze (no olive) */
   background: radial-gradient(
     circle,
-    rgba(194, 164, 99, 0.10),
-    rgba(194, 164, 99, 0)
+    rgba(33, 76, 56, 0.22),
+    rgba(33, 76, 56, 0)
   );
-  opacity: 0.45;
+
+  opacity: 0.35;
   z-index: 0;
 }
+
 
 
 
