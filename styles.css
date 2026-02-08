@@ -21,8 +21,11 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
   background:
     linear-gradient(
       to top,
@@ -35,16 +38,16 @@ html {
     radial-gradient(70% 90% at 104% 0%, rgba(33, 76, 56, 0.42), transparent 58%),
     linear-gradient(160deg, var(--forest-900), var(--forest-950) 46%, #050d09 100%);
   background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 body {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
   color: var(--white-soft);
   line-height: 1.65;
-  background: transparent; /* IMPORTANT */
 }
 
 
